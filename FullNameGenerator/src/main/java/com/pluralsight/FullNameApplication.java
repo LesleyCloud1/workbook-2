@@ -26,7 +26,7 @@ public class FullNameApplication {
         // Using StringBuilder to build the full name
         StringBuilder fullName = new StringBuilder(firstName);
 
-        // If theres a niddle name, we will mad it to the full name
+        // If theres a middle name, we will add it to the full name
         if (!middleName.isEmpty()) {
             fullName.append(" ").append(middleName);
         }

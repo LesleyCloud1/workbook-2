@@ -19,6 +19,11 @@ public class CellPhone {
         this.owner = "";
     }
 
+    // method to make the phone dial a phone number
+    public void dial(String phoneNumber) {
+        System.out.println(this.getOwner()+ "'s phone is calling " + phoneNumber);
+    }
+
 
 
     // Getters and setters are below

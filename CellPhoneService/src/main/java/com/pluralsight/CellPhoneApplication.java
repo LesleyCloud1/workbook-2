@@ -28,7 +28,7 @@ public class CellPhoneApplication {
         System.out.println("Enter the owner name: ");
         String owner = theScanner.nextLine();
 
-        // set the cellphone data on the object
+        //set the cellphone data on the object
         myPhone.setSerialNumber(Integer.parseInt(serialNumber));
         myPhone.setModel(model);
         myPhone.setCarrier(carrier);
@@ -36,10 +36,36 @@ public class CellPhoneApplication {
         myPhone.setOwner(owner);
 
         // use the getters to display this information
-        System.out.println("The phone's serial number is: " + myPhone.getSerialNumber());
-        System.out.println("The phone's model is: " + myPhone.getModel());
-        System.out.println("The phone's carrier is: " + myPhone.getCarrier());
-        System.out.println("The phone's phone number is: " + myPhone.getPhoneNumber());
-        System.out.println("The phone's owner is: " + myPhone.getOwner());
+
+
+        // create our new phone
+        CellPhone burnerPhone = new CellPhone();
+        burnerPhone.setPhoneNumber("123-456-7891");
+        burnerPhone.setOwner("Lesley");
+
+        System.out.println("---------------info for myPhone---------------");
+        //use the display method instead
+        display(myPhone);
+
+        System.out.println("---------------info for burnerPhone---------------");
+        //use the display method instead
+        display(burnerPhone);
+
+        // have myPhone call the burner
+        myPhone.dial(burnerPhone.getPhoneNumber());
+
+        // have the burner call myPhone
+        burnerPhone.dial(myPhone.getPhoneNumber());
+
+    }
+
+    static void display(CellPhone phone){
+        System.out.println("The phone's serial number is: " + phone.getSerialNumber());
+        System.out.println("The phone's model is: " + phone.getModel());
+        System.out.println("The phone's carrier is: " + phone.getCarrier());
+        System.out.println("The phone's phone number is: " + phone.getPhoneNumber());
+        System.out.println("The phone's owner is: " + phone.getOwner());
+
+
     }
 }

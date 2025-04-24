@@ -1,79 +1,79 @@
 package com.pluralsight;
-
 public class Book {
-    //Class properties that describe a book
     private int id;
     private String isbn;
     private String title;
     private boolean isCheckedOut;
     private String checkedOutTo;
 
-
-    public Book(int id, String isbn, String title) {
-        //Get values from constructor for these properties
+    //Constructor with book details
+    public Book(int id, String isbn, String title, boolean isCheckedOut, String checkedOutTo) {
         this.id = id;
         this.isbn = isbn;
         this.title = title;
-
-        //Give these properties default values but dont set from the constructor
-        this.setCheckedOut(false);
-        this.setCheckedOutTo("");
+        this.isCheckedOut = isCheckedOut; // Set whether the book is checked out
+        this.checkedOutTo = checkedOutTo; // Set the person who has checked it out (or empty if not checked out)
     }
 
-    //My custom methods
-
-    //Method to check-out a book that sets the appropriate variables
-    public void checkOut(String name){
-        //set isCheckedOutto true using setter
-        this.setCheckedOut(true);
-        //set checkedOut to, to the name passed in
-        this.setCheckedOutTo(name);
-    }
-    //Method to check in a book that clears the appropriate variables
-
-    public void checkedOut(String name){
-
-
-    }
-
-
+    //Getter for id
     public int getId() {
         return id;
     }
-    //getters and setters for all class properties
+
+    //Setter for id
     public void setId(int id) {
         this.id = id;
     }
 
+    //Getter for ISBN
     public String getIsbn() {
         return isbn;
     }
 
+    //Setter for ISBN
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 
+    //Getter for Title
     public String getTitle() {
         return title;
     }
 
+    //Setter for Title
     public void setTitle(String title) {
         this.title = title;
     }
 
+    //Getter for isCheckedOut
     public boolean isCheckedOut() {
         return isCheckedOut;
     }
 
+    //Setter for isCheckedOut
     public void setCheckedOut(boolean checkedOut) {
-        isCheckedOut = checkedOut;
+        this.isCheckedOut = checkedOut;
     }
 
+    //Getter for checkedOutTo
     public String getCheckedOutTo() {
         return checkedOutTo;
     }
 
+    //Setter for checkedOutTo
     public void setCheckedOutTo(String checkedOutTo) {
         this.checkedOutTo = checkedOutTo;
+    }
+
+    //Method to check out a book
+    public void checkOut(String name) {
+        this.checkedOutTo = name;
+        this.isCheckedOut = true;
+    }
+
+    //Method to check in a book
+    public void checkIn() {
+        this.checkedOutTo = "";
+        this.isCheckedOut = false;
     }
 }
